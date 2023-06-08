@@ -21,11 +21,13 @@
 //[“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
 //[“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 //[“Russia”, “Denmark”, “Kazan”] → []
-void PrintArray(string[] array){
-    foreach(string item in array){
-    Console.Write($"{item} ");
-}
-Console.WriteLine();
+void PrintArray(string[] array)
+{
+    foreach (string item in array)
+    {
+        Console.Write($"{item} ");
+    }
+    Console.WriteLine();
 }
 
 Console.Write("Введите длину массива n= ");
@@ -35,7 +37,13 @@ string[] arr = new string[length];
 for (int i = 0; i < arr.Length; i++)
 {
     Console.Write($"Введите {i + 1}-ый элемент массива: ");
-    arr[i] = Console.ReadLine();
+    string input = Console.ReadLine();
+    while (string.IsNullOrEmpty(input))
+    {
+        Console.WriteLine("Вы ничего не ввели. Попробуйте еще раз:");
+        input = Console.ReadLine();
+    }
+    arr[i] = input;
 }
 
 string[] newArr = new string[length];
